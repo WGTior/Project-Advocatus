@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Advocatus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Tangerine', cursive;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Spotlight_%2814871682502%29.jpg/1200px-Spotlight_%2814871682502%29.jpg');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .nav-button {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 2rem;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 1000;
+    }
+
+    .prevButton {
+      left: 20px;
+    }
+
+    .nextButton {
+      right: 20px;
+    }
+
+    .section {
+      display: none;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
+      margin: 20px;
+      width: 80%;
+      max-width: 900px;
+      background-color: transparent;
+      transition: opacity 0.5s ease;
+    }
+
+    .visible {
+      display: block;
+      opacity: 1;
+    }
+
+    .section h2 {
+      font-family: 'Tangerine', cursive;
+      font-size: 3rem;
+      color: gold;
+      margin-bottom: 15px;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+
+    .section p {
+      font-family: 'Tangerine', cursive; 
+      font-size: 3rem;
+      line-height: 1.6;
+      color: white;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+
+    .video-thumbnail {
+      cursor: pointer;
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 3px solid gold;
+      transition: transform 0.3s ease;
+    }
+
+    .video-thumbnail:hover {
+      transform: scale(1.1);
+    }
+
+    .video-fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .video-fullscreen iframe {
+      width: 80%;
+      height: 80%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      margin: 10px;
+      border-radius: 6px;
+      border: 3px solid gold;
+      cursor: pointer;
+      transition: transform 0.3s ease; 
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1); 
+    }
+
+    .gallery-fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1500;
+    }
+
+    .gallery-fullscreen img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+
+    .thank-you {
+      font-family: 'Tangerine', cursive;
+      font-size: 10rem;
+      color: white;
+      margin-top: 50px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    @media (max-width: 768px) {
+      .nav-button {
+        font-size: 1.5rem;
+        padding: 10px;
+      }
+      .section {
+        width: 90%;
+      }
+      .gallery img {
+        max-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="prevButton" class="nav-button prevButton" onclick="prevSection()">←</button>
+  <button id="nextButton" class="nav-button nextButton" onclick="nextSection()">→</button>
+
+  <div id="introduction" class="section">
+    <h2>Introduction</h2>
+    <p>This is Tonie Jearynz Aquino speaking. The Declamation Program is something that I've done annually since I was in GLC in grade 1. It has been part of every grade and the memories are always those of exciting and joyful moments when you get to show a presentation or a speech to your family and friends in the audience. This year, I advocated about Mental Health Awareness. I hope that this topic will open eyes for people who had previously disregarded its importance. This was amazing to experience with my friends and classmates who supported me in my performance.</p>
+  </div>
+
+  <div id="overview" class="section">
+    <h2>Mental Health Awareness</h2>
+    <p>Good day everyone, I am Tonie Jearynz Aquino, advocating for a particularly sensitive type of health awareness. Mental health awareness is a key factor in relieving one’s pains and struggles. It is as essential as nursing our physical being because these are interconnected with each other. If one’s mental state is not thriving, then it is more likely to affect one’s physical health. For example, a person who has a mental illness may encounter issues with his or her body due to psychological stress which affects the nervous system of a human. The cons of having to deal with a poor psychological being is far greater than the difficulty of seeking help or making changes. By being aware about our mental health, we save ourselves the time of suffering because of it. Mental health awareness is not only important to ourselves but to other people as well. We must consider the well-being of those who surround us for they also influence our thoughts and emotions. Looking after each other helps us build a better community with healthy minds that will coordinate for greater unity. Thank you.</p>
+  </div>
+
+  <div id="performance" class="section">
+    <h2>Performance Video</h2>
+    <img src="https://i.imgur.com/QAnDRYh.png" alt="Video Thumbnail" class="video-thumbnail" onclick="showFullscreen()" />
+    <div class="video-fullscreen" id="videoFullscreen">
+      <iframe src="https://drive.google.com/file/d/1sjuWHmlh2fcLsc5GiV0wHgemg-wkbkoz/preview" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div id="gallery" class="section">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://i.imgur.com/9wjnuEo.jpeg" alt="Scene 1" onclick="openGalleryFullscreen(this.src)" />
+      <img src="https://i.imgur.com/A7MjPNy.jpeg" alt="Scene 2" onclick="openGalleryFullscreen(this.src)" />
+      <img src="https://i.imgur.com/5iwYw9B.jpeg" alt="Scene 3" onclick="openGalleryFullscreen(this.src)" />
+    </div>
+  </div>
+
+  <div class="gallery-fullscreen" id="galleryFullscreen" onclick="closeGalleryFullscreen()">
+    <img id="galleryFullscreenImg" src="" alt="Fullscreen Gallery Image" />
+  </div>
+
+  <div id="final" class="section">
+    <h2>The End</h2>
+    <p>Before stepping onto the stage, my heart raced. The anxiety of speaking in front of an audience was overwhelming, and I couldn’t help but wonder if I would forget my words or falter in the middle of the speech. But as soon as I started speaking,the nerves slowly faded away and was replaced by a sense of focus and determination. Once I finished and saw a positive response from the audience, I was relieved that my message was successfully delivered.
+</p>
+  </div>
+
+  <div id="thankyou" class="section">
+ <h2 class="thank-you" style="font-size: 200px;">Thank You!</h2>
+  </div>
+
+  <script>
+    let currentSection = 0;
+    const sections = ['introduction', 'overview', 'performance', 'gallery', 'final', 'thankyou'];
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+
+    function nextSection() {
+      if (currentSection < sections.length - 1) {
+        document.getElementById(sections[currentSection]).classList.remove('visible');
+        currentSection++;
+        document.getElementById(sections[currentSection]).classList.add('visible');
+        updateButtonVisibility();
+      }
+    }
+
+    function prevSection() {
+      if (currentSection > 0) {
+        document.getElementById(sections[currentSection]).classList.remove('visible');
+        currentSection--;
+        document.getElementById(sections[currentSection]).classList.add('visible');
+        updateButtonVisibility();
+      }
+    }
+
+    function updateButtonVisibility() {
+      if (currentSection === 0) {
+        prevButton.style.display = 'none';
+      } else {
+        prevButton.style.display = 'inline-block';
+      }
+
+      if (currentSection === sections.length - 1) {
+        nextButton.style.display = 'none';
+      } else {
+        nextButton.style.display = 'inline-block';
+      }
+    }
+
+    function showFullscreen() {
+      const videoFullscreen = document.getElementById('videoFullscreen');
+      videoFullscreen.style.display = 'flex';
+    }
+
+    document.getElementById('videoFullscreen').addEventListener('click', function () {
+      this.style.display = 'none';
+    });
+
+    function openGalleryFullscreen(src) {
+      const galleryFullscreen = document.getElementById('galleryFullscreen');
+      const galleryFullscreenImg = document.getElementById('galleryFullscreenImg');
+      galleryFullscreenImg.src = src;
+      galleryFullscreen.style.display = 'flex';
+    }
+
+    function closeGalleryFullscreen() {
+      const galleryFullscreen = document.getElementById('galleryFullscreen');
+      galleryFullscreen.style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('introduction').classList.add('visible');
+      updateButtonVisibility();
+    });
+  </script>
+</body>
+</html>
